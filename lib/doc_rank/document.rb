@@ -1,11 +1,14 @@
-module DocRank
 require 'pdf/reader'
 require 'docx'
-
+module DocRank
+  # Holds the contents of a a document(.pdf, .docx, .txt) as a text string.
   class Document
 
+    # A 'getter' for the string content of the document.
     attr_reader :text
 
+    # @param [String] file The file name.
+    # @raise [ArgumentError] Throw an error when the class doesn't support a given file.
     def initialize(file)
       ext = File.extname(file)
       if ext == '.pdf'
