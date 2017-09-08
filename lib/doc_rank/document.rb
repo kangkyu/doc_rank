@@ -8,8 +8,16 @@ module DocRank
     attr_reader :text
 
     # @param [String] file The file name.
-    # @raise [ArgumentError] Throw an error when the class doesn't support a given file.
     def initialize(file)
+      @text = get_doc_content(file)
+    end
+
+    private
+
+    # Returns the string content of a file(.pdf, .docx, .txt)
+    # @param [String] file The file name.
+    # @raise [ArgumentError] Throw an error when the class doesn't support a given file.
+    def get_doc_content(file)
       ext = File.extname(file)
       if ext == '.pdf'
         @text = PDF::Reader.new(file).pages.map { |page| page.text }.join ' '
@@ -21,6 +29,5 @@ module DocRank
         raise ArgumentError.new("File not supported.")
       end
     end
-
   end
 end
