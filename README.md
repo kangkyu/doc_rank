@@ -1,8 +1,13 @@
 # DocRank
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/doc_rank`. To experiment with that code, run `bin/console` for an interactive prompt.
+Returns a similarity score between one or many documents against a base document (keyword comparison).
 
-TODO: Delete this and the text above, and describe your gem
+[![Build Status](http://img.shields.io/travis/S1v4/doc_rank/master.svg)](https://travis-ci.org/S1v4/doc_rank)
+[![Code Climate](http://img.shields.io/codeclimate/github/S1v4/doc_rank.svg)](https://codeclimate.com/github/S1v4/doc_rank)
+[![Online docs](http://img.shields.io/badge/docs-✓-green.svg)](http://www.rubydoc.info/gems/doc_rank/frames)
+[![Gem Version](http://img.shields.io/gem/v/doc_rank.svg)](http://rubygems.org/gems/doc_rank)
+
+The **source code** is available on [GitHub](https://github.com/S1v4/doc_rank) and the **documentation** on [RubyDoc](http://www.rubydoc.info/gems/doc_rank/frames).
 
 ## Installation
 
