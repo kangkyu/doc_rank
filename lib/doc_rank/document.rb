@@ -1,33 +1,24 @@
-require 'pdf/reader'
-require 'docx'
+require 'yomu'
+require 'highscore'
+
+# A gem to rank document similarities.
 module DocRank
-  # Holds the contents of a a document(.pdf, .docx, .txt) as a text string.
+  # Document holds the contents of a document (.pdf, .docx, .txt) and has methods:
+  # name, text, and keywords.
   class Document
 
-    # A 'getter' for the string content of the document.
+    # [String] the name of the document.
+    attr_reader :name
+    # [String] the text content of the document.
     attr_reader :text
+    # [Highscore::Keyword] a collection of keyword objects.
+    attr_reader :keywords
 
-    # @param [String] file The file name.
-    def initialize(file)
-      @text = get_doc_content(file)
-    end
-
-    private
-
-    # Returns the string content of a file(.pdf, .docx, .txt)
-    # @param [String] file The file name.
-    # @raise [ArgumentError] Throw an error when the class doesn't support a given file.
-    def get_doc_content(file)
-      ext = File.extname(file)
-      if ext == '.pdf'
-        @text = PDF::Reader.new(file).pages.map { |page| page.text }.join ' '
-      elsif ext == '.docx'
-        @text = Docx::Document.new(file).text
-      elsif ext == '.txt'
-        @text = File.read(file)
-      else
-        raise ArgumentError.new("File not supported.")
-      end
+    # @param [String] file The path to the file.
+    def initialize(file_path)
+      @text = Yomu.new(file_path).text
+      @name = File.basename file_path
+      @keywords = Highscore::Content.new(@text).keywords
     end
   end
 end
