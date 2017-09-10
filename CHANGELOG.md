@@ -8,4 +8,7 @@ For more information about changelogs, check
 
 ## 0.0.0.alpha.2 - 2017/09/07
 
+* [FEATURE] Add `DocRank.compare`
 * [FEATURE] Add `DocRank::Document#text`
+* [FEATURE] Add `DocRank::Document#name`
+* [FEATURE] Add `DocRank::Document#keywords`
