@@ -41,7 +41,8 @@ ranker = DocRank::Ranker.new(baseDoc, targetDocs)
 score = ranker.scores
 # =>[Hash]{ 'JonResume.pdf' => 50, 'JaneResume.docx' => 33 }
 
-# Get a weighted score that gives matching keywords a weight according to their significance and repetition.
+# Get a weighted score that gives matching keywords a weight according to their
+# significance and repetition.
 score = ranker.weighted_scores
 # => [Hash]{ 'JonResume.pdf' => 105.0, 'JaneResume.docx' => 188.0 }
 ```
