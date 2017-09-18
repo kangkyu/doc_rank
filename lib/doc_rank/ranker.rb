@@ -48,7 +48,7 @@ module DocRank
     end
 
     def rank(docs)
-      docs.sort_by{|doc| doc[1]}.to_h
+      docs.sort_by{|doc| doc[1]}.reverse.to_h
     end
   end
 end

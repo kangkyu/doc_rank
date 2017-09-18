@@ -17,6 +17,6 @@ RSpec.describe 'DocRank::Ranker#weighted_scores' do
 
   it 'returns a hash table of name and weighted score of multiple target documents.' do
     ranker = DocRank::Ranker.new base, mult_targets
-    expect(ranker.weighted_scores).to eq({"resume2.docx"=>57.0, "resume3.pdf"=>180.0})
+    expect(ranker.weighted_scores).to eq({"resume3.pdf"=>180.0, "resume2.docx"=>57.0})
   end
 end
